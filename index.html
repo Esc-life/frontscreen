@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>학교 안내 슬라이드</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+    }
+    img {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+    }
+    img.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <img src="slide1.jpg" class="active">
+  <img src="slide2.jpg">
+  <img src="slide3.jpg">
+  <img src="slide4.jpg">
+  <img src="slide5.jpg">
+
+  <script>
+    const slides = document.querySelectorAll("img");
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 5000); 
+  </script>
+</body>
+</html>
